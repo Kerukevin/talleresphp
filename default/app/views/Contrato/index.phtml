@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Historial de Contratos de servicio</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Contratos de servicio</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<!--<th class="tab"><i>IDContrato</i></th>-->
+					<!--<th class="tab"><i>Servicio</i></th>-->
+					<th class="tab"><i>Auto</i></th>
+					<th class="tab"><i>Fecha</i></th>
+				</tr>
+				<?php foreach ( $listContrato -> items as $item): ?>
+
+					<tr>
+						<!--<td class="tab"><?php echo $item -> idContrato ?></td>-->
+						<!--<td class="tab"><?php echo $item -> idServicio ?></td>-->
+					
+						<td class="tab" align="center"><?php echo $item -> idAuto ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> fecha ?></td>
+					
+			
+
+						<td class="tab" align="center">
+
+							<td>
+								<?php echo Html::link("Pago/pagar/$item->idContrato/",'Pagar')?>
+							
+								
+								<!--<?php echo Js::linkAction ("del/$item->idServicio/",'Borrar') ?>-->
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("create/",'Realizar nueva compra') ?></p> -->
+			<br>
+			<!--<?= Html::link('Servicio/index/1/U', 'Servicio', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			<?= Html::link('Producto/index/1/U', 'Producto', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>-->
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links"><?php if($listContrato->prev) echo Html::linkAction ("index/$listContrato->prev",' << Anterior')?></p>
+			<p class="links"><?php if($listContrato->next) echo Html::linkAction ("index/$listContrato->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

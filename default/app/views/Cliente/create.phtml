@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Crear Usuario</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us" align="Center">Crear Usuario</h3>
+				<table cellspacing="10px" class="condensed , zebra ,  t">
+					<tr>
+						<td>
+							<label><i>Email</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::email('Cliente.email')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Password</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::pass('Cliente.password')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Nombre</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Cliente.nombreCliente')?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<label><i>Genero</i></label>
+						</td>
+						<td>
+							<label><i>M</i><?php echo Form::radio('Cliente.genero','M','sexo')?></label>
+							<label><i>F</i><?php echo Form::radio('Cliente.genero','F','sexo')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Fecha Nacimiento</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('Cliente.fechaNacimiento')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Rol de Usuario</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::select('Cliente.rol',array('A'=>'Administrador','U'=>'Cliente'))?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

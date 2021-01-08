@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lista de Clientes</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body >
+		<section>
+			<?php View::content();?>
+			<h3 align="center" >Clientes</h3>
+			<br>
+			<!--<?= Html::link('Auto/Index/', 'Autos', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>-->
+			<table id="tabla" class="condensed , zebra , border , t" >
+				<tr>
+					<!--<th class="tab"><i>ID</i></th>-->
+					<th class="zebra"><i>Nombre</i></th>
+					<th class="tab"><i>Genero</i></th>
+					<!--<th class="tab"><i>Fecha Nacimiento</i></th>-->
+					<th class="tab"><i>Email</i></th>
+					<th class="tab"><i>Rol</i></th>
+				</tr>
+				<?php foreach ( $listCliente -> items as $item): ?>
+					<tr>
+						<!--<td class="tab"><?php echo $item -> idCliente ?></td>-->
+						<td class="tab" align="center"><?php echo $item -> nombreCliente ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> genero ?></td>
+					
+						<!--<td class="tab" align="center"><?php echo $item -> fechaNacimiento ?></td>-->
+					
+					
+						<td class="tab" align="center"><?php echo $item -> email ?></td>
+						<td class="tab" align="center"><?php echo $item -> rol ?></td>
+						<td class="tab" align="center">
+
+							<td>
+								<?php echo Html::linkAction("edit/$item->idCliente/",'Editar') ?>
+								
+								<?php echo Html::linkAction ("del/$item->idCliente/",'Borrar', 'onclick="return confirm(\'¿Está seguro?\')"') ?>
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("create/",'Registrarme') ?></p>-->
+			<br>
+			<p class="links" align="center">
+				<?= Html::link('Servicio/index/1/U', 'Servicios', 'title="Ver configuración de la aplicación" class="btn btn-primary"') ?>
+				<?= Html::link('Producto/index/1/U', 'Productos', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+					
+			</p>
+			
+			
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links" ><?php if($listCliente->prev) echo Html::linkAction ("index/$listCliente->prev",' << Anterior') ?></p>
+			<p class="links" ><?php if($listCliente->next) echo Html::linkAction ("index/$listCliente->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

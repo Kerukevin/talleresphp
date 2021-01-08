@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quiero el servicio</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">Servicio</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><?php echo Form::hidden('Servicio.idServicio')  ?></label>
+						</td>
+					</tr>
+					<tr>
+						
+						<td>
+							<label><i>Nombre</i></label>
+						</td>
+						<td>
+							<label><?php print(Form::text('Servicio.nombre'))  ?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text(' ')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Aceptar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

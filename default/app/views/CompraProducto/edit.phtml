@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Editar Auto</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">EditarAuto</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><?php echo Form::hidden('CompraProducto.idCompraProducto')  ?></label>
+						</td>
+					</tr>
+					<tr>
+						
+						<td>
+							<label><i>id Cliente</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('CompraProducto.idCliente')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>idProducto</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('CompraProducto.idProducto')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('CompraProducto.fecha')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Pago</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('CompraProducto.totalPago')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Color</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.color')?></label>
+						</td>
+					</tr>
+					<tr>
+					<tr>
+						<label><i>Cliente</i></label>
+						<td>
+							<label><?php echo Form::select('Auto.idCliente',array(1=>'Kevin',2=>'David  '))  ?></label>
+						</td>
+					</tr>
+					<tr>
+
+					<tr>
+						<td>
+							<?php echo Form::submit (' Actualizar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

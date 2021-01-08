@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lista de usuarios</title>
+		<?php 
+				echo Tag::js('jquery/jquery.min');
+				echo Tag::js('jquery/jquery.kumbiaphp.min');
+		?>
+		<!--<?php Tag::css('kumbia')?>-->
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="left">Datos personales</h3>
+			<table id="tabla">
+				<tr>
+					<th class="tab"><i>ID</i></th>
+					<th class="tab"><i>Nombre</i></th>
+					 <!-- <th class="tab"><i>Password</i></th> -->
+					<th class="tab"><i>Genero</i></th>
+					<th class="tab"><i>Fecha Nacimiento</i></th>
+					<th class="tab"><i>Email</i></th>
+				</tr>
+				<?php foreach ( $listUsuario -> items as $item): ?>
+					<tr>
+						<td class="tab"><?php echo $item -> idUsuario ?></td>
+						<td class="tab"><?php echo $item -> nombre ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> genero ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> fechaNacimiento ?></td>
+					
+					
+						<td class="tab"><?php echo $item -> email ?></td>
+						<td class="tab" align="center">
+
+							<td>
+								<?php echo Html::linkAction("edit/$item->idUsuario/",'Editar') ?>
+								
+								<?php echo Js::linkAction ("del/$item->idUsuario/",'Borrar') ?>
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<p class="links"><?php echo Html::linkAction("create/",'Crear') ?></p>
+			<br/>
+			<br/>
+			<p class="links"><?php if($listUsuario->prev) echo Html::linkAction ("index/$listUsuario->prev",' << Anterior') ?></p>
+			<p class="links"><?php if($listUsuario->next) echo Html::linkAction ("index/$listUsuario->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

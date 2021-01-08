@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lista de Servicios</title>
+		<?php 
+				echo Tag::js('jquery/jquery.min');
+				echo Tag::js('jquery/jquery.kumbiaphp.min');
+		?>
+		<!--<?php Tag::css('kumbia')?>-->
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3  align="center">Servicios</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<th class="tab"><i>ID</i></th>
+					<th class="tab"><i>Servicio</i></th>
+					 <!-- <th class="tab"><i>Password</i></th> -->
+					<th class="tab"><i>Precio</i></th>
+
+				</tr>
+				<?php foreach ( $listServicio -> items as $item): ?>
+					<tr>
+						<td class="tab"><?php echo $item -> idServicio ?></td>
+						<td class="tab"><?php echo $item -> nombre ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> precio ?></td>
+					
+						<td class="tab" align="center">
+
+							<td>
+							
+								<?php echo Html::link("Contrato/contratar/$item->idServicio/",'Ir a la Caja')?> 
+								<!--<?php echo Html::linkAction("edit/$item->idServicio/",'Editar') ?>
+
+								<?php echo Js::linkAction ("del/$item->idServicio/",'Borrar') ?>-->
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<p class="links"><?php echo Html::link ("Comparacion/ValidarAdmin/",'Agregar Servicios') ?></p>
+			<p class="links" align="center">
+				<?= Html::link('Producto/index/1/U', 'Productos', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+				<?= Html::link('Cliente/index/1/U', 'Menu Clientes', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			</p>
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+			<p class="links"><?php if($listServicio->prev) echo Html::linkAction ("index/$listServicio->prev",' << Anterior') ?></p>
+			<p class="links"><?php if($listServicio->next) echo Html::linkAction ("index/$listServicio->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

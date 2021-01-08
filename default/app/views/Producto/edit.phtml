@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Editar Producto</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">Editar Producto</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><?php echo Form::hidden('Producto.idProducto')  ?></label>
+						</td>
+					</tr>
+					<tr>
+						
+						<td>
+							<label><i>Nombre</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Producto.nombre')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Precio</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Producto.precio')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Stock</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Producto.stock')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Actualizar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

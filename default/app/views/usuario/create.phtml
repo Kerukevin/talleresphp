@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Crear Usuario</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">Crear Usuario</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><i>Email</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::email('usuario.email')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Password</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::pass('usuario.password')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Nombre</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('usuario.nombre')?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<label><i>Genero</i></label>
+						</td>
+						<td>
+							<label><i>M</i><?php echo Form::radio('usuario.genero','M','sexo')?></label>
+							<label><i>F</i><?php echo Form::radio('usuario.genero','F','sexo')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Fecha Nacimiento</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('usuario.fechaNacimiento')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Historial Pagos de Servicios</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Datos Pago</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<!--<th class="tab"><i>id PAGO</i></th>
+					<th class="tab"><i>id Cliente</i></th>-->
+
+					<th class="tab"><i>id Contrato</i></th>
+					<th class="tab"><i>Pago</i></th>
+					<th class="tab"><i>Fecha</i></th>
+
+				</tr>
+				<?php foreach ( $listPago -> items as $item): ?>
+					<tr>
+						<!--<td class="tab" align="center"><?php echo $item -> idPago ?></td>
+						<td class="tab" align="center"><?php echo $item -> idCliente ?></td>-->
+					
+						<td class="tab" align="center"><?php echo $item -> idContrato ?></td>
+						<td class="tab" align="center"><?php echo $item -> totalPago ?></td>					
+						<td class="tab" align="center"><?php echo $item -> fecha ?></td>
+					
+
+						<td class="tab" align="center">
+
+							<td>
+								
+								<!--<?php echo Html::linkAction("edit/$item->idCompra/",'Editar') ?>-->
+								
+								<!--<?php echo Html::linkAction ("del/$item->idPago/",'Borrar', 'onclick="return confirm(\'¿Está seguro?\')"') ?>-->
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("create/",'Realizar nueva compra') ?></p> -->
+			<br>
+			<p class="links" align="center">
+
+				<?= Html::link('Cliente/index/1/U', 'Menu Clientes', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			</p>
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links"><?php if($listPago->prev) echo Html::linkAction ("index/$listPago->prev",' << Anterior')?></p>
+			<p class="links"><?php if($listPago->next) echo Html::linkAction ("index/$listPago->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

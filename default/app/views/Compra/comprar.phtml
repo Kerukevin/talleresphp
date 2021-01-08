@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compra Productos</title>
+</head>
+<body>
+	<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us" align="Center">Compra de producto</h3>
+				<table cellspacing="10px" class="condensed , zebra ,  t">
+					<tr>
+
+					</tr>
+					<tr>
+						<td>
+							<label><i>Producto</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::select('Compra.idProducto',array($listvar1->idProducto=>$listvar1->nombre))?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Cliente</i></label>
+						</td>
+						<td>
+							 <div class="row">
+			    				<div class="six columns">
+			     				 <label for="idCliente"></label>
+			     				 <?= Form::dbSelect('Compra.idCliente', 'nombreCliente', array('cliente', 'all'), '- Seleccione -'); ?>
+			    				</div>
+			 				 </div>
+							<!--<label><?php echo Form::select('Compra.idCliente',array($listvar2->idCliente=>$listvar2->nombreCliente)) ?>-->
+						</td>
+					</tr>
+
+					
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('Compra.fecha')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Costo</i></label>
+						</td>
+						<td>
+							
+							<label><?php echo Form::select('Compra.totalPago', array($listvar3->precio => $listvar3->precio ))?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Cantidad</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Compra.cantidad')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Comprar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+
+</body>
+</html>

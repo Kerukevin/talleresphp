@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Historial de Contratos de ervicio</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="left">Contratos de servicio</h3>
+			<table id="tabla">
+				<tr>
+					<th class="tab"><i>IDContrato</i></th>
+					<th class="tab"><i>Servicio</i></th>
+					 <!-- <th class="tab"><i>Password</i></th> -->
+					<th class="tab"><i>Cliente</i></th>
+					<th class="tab"><i>Fecha</i></th>
+				</tr>
+				<?php foreach ( $listContratoServicio -> items as $item): ?>
+					<tr>
+						<td class="tab"><?php echo $item -> idContratoServicio ?></td>
+						<td class="tab"><?php echo $item -> idServicio ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> idAuto ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> fecha ?></td>
+					
+			
+
+						<td class="tab" align="center">
+
+							<td>
+								
+								<?php echo Html::linkAction("edit/$item->idCompraProducto/",'Editar') ?>
+								
+								<?php echo Html::linkAction ("del/$item->idCompraProducto/",'Borrar', 'onclick="return confirm(\'¿Está seguro?\')"') ?>
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("create/",'Realizar nueva compra') ?></p> -->
+			<br>
+			<?= Html::link('Servicio/index/1/U', 'Servicio', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			<?= Html::link('Producto/index/1/U', 'Producto', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			<br/>
+			<br>
+			<a href="http://localhost:83/talleresphp/" aria-current="page">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links"><?php if($listCompraProducto->prev) echo Html::linkAction ("index/$listCompraProducto->prev",' << Anterior')?></p>
+			<p class="links"><?php if($listCompraProducto->next) echo Html::linkAction ("index/$listCompraProducto->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registro de autos</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Datos Auto</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<!--<th class="tab"><i>ID</i></th>-->
+					<th class="tab"><i>Matricula</i></th>
+					<th class="tab"><i>Marca-</i></th>
+					<th class="tab"><i>-Modelo-</i></th>
+					<th class="tab"><i>-Anio-</i></th>
+					<th class="tab"><i>-Color-</i></th>
+					<!--<th class="tab"><i>-ID Cliente-</i></th>-->
+				
+				</tr>
+				<?php foreach ( $listAuto -> items as $item): ?>
+					<tr>
+						<!--<td class="tab"><?php echo $item -> idAuto ?></td>-->
+						<td class="tab"><?php echo $item -> matricula ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> marca ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> modelo ?></td>
+					
+					
+						<td class="tab" align="center"><?php echo $item -> anio ?></td>
+						<td class="tab" align="center"><?php echo $item -> color ?></td>
+						<!--<td class="tab" align="center"><?php echo $item-> idCliente ?></td>-->
+						<!--<td class="tab"><?php echo $listvar->nombreCliente ?></td>-->
+
+						<td class="tab" align="center">
+
+							<td>
+								<?php echo Html::linkAction("edit/$item->idAuto/",'Editar') ?>
+								
+								<?php echo Html::linkAction ("del/$item->idAuto/",'Borrar', 'onclick="return confirm(\'¿Está seguro?\')"') ?>
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<p class="links"><?php echo Html::linkAction("create/",'Ingresar Auto') ?></p>
+			<br>
+			<p class="links" align="center">
+				<?= Html::link('Servicio/index/1/U', 'Servicios', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			</p>
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links"><?php if($listAuto->prev) echo Html::linkAction ("index/$listAuto->prev",' << Anterior') ?></p>
+			<p class="links"><?php if($listAuto->next) echo Html::linkAction ("index/$listAuto->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

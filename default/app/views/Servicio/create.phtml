@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Anadir Servicio</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us" align="Center">Anadir Servicio</h3>
+				<table cellspacing="10px" class="condensed , zebra ,  t">
+					<tr>
+						<td>
+							<label><i>Nombre</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Servicio.nombre')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Precio</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Servicio.precio')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

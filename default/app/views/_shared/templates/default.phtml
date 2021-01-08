@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<?= Tag::js('jquery/jquery.min'); ?>
+<html lang="es">
+ <head>
+  <meta charset=<?= APP_CHARSET ?> >
+  <title>Taller de autos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php Tag::css('kumbia') ?>
+  <?= Html::includeCss() ?>
+  <style>
+        .box{
+          position: relative;
+          width: 1000px;
+          height: 14px;
+          background-color: #1066d861;
+          right: 45px;
+        }
+        .ul{
+          list-style: none;
+          width: 141px;
+    
+        }
+        .img{
+          position: relative;
+          right: 141px;
+        }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header class="row">
+        <div class="box">
+        </div>
+
+
+        <div class="col-12 text-right" >
+          
+          <div class="img"><?php echo Html::img('Autos.png' ,'una imagen'); ?></div>
+          <br>
+          <!--Bienvenido <strong><?= basename(dirname(APP_PATH)) ?></strong> (<?= PRODUCTION ? 'Production' : 'Development' ?>)-->
+          <div class="col-3 text-right">
+            <ul class="inline" >
+              <li><a href='http://localhost/talleresphp/Cliente/login'>Login</a> |</li>
+              <li><a href='http://localhost/talleresphp/Cliente/Create'>Registrarme</a> |</li>
+              <li><a href='http://localhost/talleresphp/Comparacion/Validaradmin'>Admin</a> |</li>
+            </ul>
+          </div>
+          
+          
+        </div>
+       
+    
+      
+
+  </header>
+  <?php View::content() ?>
+  <?php View::partial('kumbia/footer') ?>
+</div>
+</body>
+</html>

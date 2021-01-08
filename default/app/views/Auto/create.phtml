@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Crear Usuario</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>				
+				<h3 id="us" align="Center">Ingresar Auto</h3>
+				<table cellspacing="10px" class="condensed , zebra ,  t">
+					<tr>
+						<td>
+							<label><i>Matricula</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.matricula')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Marca</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.marca')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Modelo</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.modelo')?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<label><i>Anio</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.anio')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Color</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Auto.color')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Cliente</i></label>
+						</td>
+						<td>
+							<!-- AQUI VA EN COMBO BOX con los nombres de los clientes en la variable listvar-->
+							<!-- Solo aparece el primer registro, necesito que aparezcan todos los nombres de los clientes-->
+							 <div class="row">
+			    				<div class="six columns">
+			     				 <label for="idCliente"></label>
+			     				 <?= Form::dbSelect('Auto.idCliente', 'nombreCliente', array('cliente', 'all'), '- Seleccione -'); ?>
+			    				</div>
+			 				 </div>
+							<!--<label><?php  echo Form::select('Auto.idCliente',array($listvar->idCliente=>$listvar->nombreCliente))?></label>-->
+
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

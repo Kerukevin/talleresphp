@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lista de Productos</title>
+		<?php 
+				echo Tag::js('jquery/jquery.min');
+				echo Tag::js('jquery/jquery.kumbiaphp.min');
+		?>
+		<!--<?php Tag::css('kumbia')?>-->
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="Center">Productos</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<th class="tab"><i>ID</i></th>
+					<th class="tab"><i>Producto</i></th>
+					 <!-- <th class="tab"><i>Password</i></th> -->
+					<th class="tab"><i>Precio</i></th>
+					<th class="tab"><i>Stock</i></th>
+
+				</tr>
+				<?php foreach ( $listProducto -> items as $item): ?>
+					<tr>
+						<td class="tab"><?php echo $item -> idProducto ?></td>
+						<td class="tab"><?php echo $item -> nombre ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> precio ?></td>
+						<td class="tab" align="center"><?php echo $item -> stock ?></td>
+						<td class="tab" align="center">
+
+							<td>
+								<?php echo Html::link("Compra/comprar/$item->idProducto/",'$ Ir a la Caja')?>
+								<!--<?php echo Html::linkAction("edit/$item->idProducto/",'Editar') ?>
+
+								<?php echo Js::linkAction ("del/$item->idProducto/",'Borrar') ?>-->
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<p class="links , col-2 text-right"><?php echo Html::link ("Comparacion/ValidarAdmin/",'Agregar Productos') ?></p>
+			<p class="links" align="center">
+				<?= Html::link('Cliente/index/1/U', 'Inicio', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+				<?= Html::link('Servicio/index/1/U', 'Servicios', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			</p>
+			
+			
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+			<br/>
+			<p class="links"><?php if($listProducto->prev) echo Html::linkAction ("index/$listProducto->prev",' << Anterior') ?></p>
+			<p class="links"><?php if($listProducto->next) echo Html::linkAction ("index/$listProducto->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

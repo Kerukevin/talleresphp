@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analisis</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Analisis de Ingresos</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<th class="tab"><i><?= Html::link('Comparacion/Comparar', 'Comparar Ingresos en el tiempo', 'title="Ver configuración de la aplicación" class="btn btn-success"') ?></i></th>			
+		
+				</tr>	
+
+				<tr>
+					<th class="tab"><i><?= Html::link('Comparacion/ProductoServicioVendido', 'Productos y Servicios mas vendidos', 'title="Ver configuración de la aplicación" class="btn btn-primary"') ?></i></th>
+				</tr>
+				<tr>
+						<th class="tab"><i><?= Html::link('Producto/create/', 'Agregar Productos', 'title="Ver configuración de la aplicación" class="btn btn-success"') ?></i></th>
+				</tr>
+				<tr>
+					<th class="tab"><i><?= Html::link('Servicio/create/', 'Agregar Servicios', 'title="Ver configuración de la aplicación" class="btn btn-primary"') ?></i></th>
+				</tr>
+
+				
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("Comparar/",'Realizar nueva Comparacion') ?></p> -->
+			<br>
+			<!-- <?= Html::link('Servicio/index/1/U', 'Servicio', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>-->
+			<!--<?= Html::link('Producto/index/1/U', 'Producto', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>-->
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<!--<p class="links"><?php if($listComparacion->prev) echo Html::linkAction ("index/$listComparacion->prev",' << Anterior')?></p>
+			<p class="links"><?php if($listComparacion->next) echo Html::linkAction ("index/$listComparacion->next",' Siguiente  >>') ?></p>-->
+		
+		</section>
+	</body>
+</html>

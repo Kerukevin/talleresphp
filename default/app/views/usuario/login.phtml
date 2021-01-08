@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		
+		<!--<?php Tag::css('kumbia')?>-->
+	</head>
+	<body>
+		<section>
+			<?php View::content(); ?>
+			<?php echo Form::open("usuario/login"); ?> <!--Estaba usuario/index/-->
+			<?php echo Form::label("usuario","login"); ?><!--Estaba "email"-->
+			<?php echo Form::email("email"); ?>
+			<?php echo Form::label("Paaasword","password"); ?>
+			<?php echo Form::pass("password"); ?>
+			<?php echo Form::submit("Ingresar"); ?>
+			<?php echo Form::close(); ?>
+			<br/>
+			<p class="links"><?php echo Html::linkAction("create/",'Crear') ?></p>
+			<br/>
+
+		</section>
+	</body>
+</html>

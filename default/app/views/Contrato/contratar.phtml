@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contratos servicio</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us" align="Center">Contratos de servicios</h3>
+				<table cellspacing="10px" class="condensed , zebra ,  t">
+					<a href="http://localhost/talleresphp/Auto/Create" aria-current="page" class="Center">
+						Ingresa tu Auto
+					</a>
+					<tr>
+						<td>
+							<label><i>Servicio</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::select('Contrato.idServicio',array($listvar1->idServicio=>$listvar1->nombre))?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Auto</i></label>
+						</td>
+						<td>
+							 <div class="row">
+			    				<div class="six columns">
+			     				 <label for="idAuto"></label>
+			     				 <?= Form::dbSelect('Contrato.idAuto', 'matricula', array('Auto', 'all'), '- Seleccione -'); ?>
+			    				</div>
+			 				 </div>
+		 				 </td>
+					</tr>
+					
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('Contrato.fecha')?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

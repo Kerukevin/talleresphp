@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Historial de Compras</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Datos Compra</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<!--<th class="tab"><i>IDCompra</i></th>
+					<th class="tab"><i>Cliente</i></th>-->
+					 
+					<th class="tab"><i>Producto</i></th>
+					<th class="tab"><i>Fecha</i></th>
+					<th class="tab"><i>Pago</i></th>
+					<th class="tab"><i>Cantidad</i></th>
+
+				</tr>
+				<?php foreach ( $listCompra -> items as $item): ?>
+					<tr>
+						<!--<td class="tab" align="center"><?php echo $item -> idCompra ?></td>
+						<td class="tab" align="center"><?php echo $item -> idCliente ?></td>-->
+					
+						<td class="tab" align="center"><?php echo $item -> idProducto ?></td>
+					
+						<td class="tab" align="center"><?php echo $item -> fecha ?></td>
+					
+					
+						<td class="tab" align="center"><?php echo $item -> totalPago ?></td>
+						<td class="tab" align="center"><?php echo $item -> cantidad ?></td>
+
+						<td class="tab" align="center">
+
+							<td>
+								
+								<!--<?php echo Html::linkAction("edit/$item->idCompra/",'Editar') ?>
+								
+								<?php echo Html::linkAction ("del/$item->idCompra/",'Borrar', 'onclick="return confirm(\'¿Está seguro?\')"') ?>-->
+							</td>
+							
+							 
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+			<br/>
+			<!--<p class="links"><?php echo Html::linkAction("create/",'Realizar nueva compra') ?></p> -->
+			<br>
+			<p class="links" align="center">
+
+				<?= Html::link('Cliente/index/1/U', 'Menu Clientes', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+				<?= Html::link('Producto/index/1/U', 'Nueva Compra', 'title="Ver configuración de la aplicación" class="btn btn-info"') ?>
+			</p>
+			<br/>
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+			<p class="links"><?php if($listCompra->prev) echo Html::linkAction ("index/$listCompra->prev",' << Anterior')?></p>
+			<p class="links"><?php if($listCompra->next) echo Html::linkAction ("index/$listCompra->next",' Siguiente  >>') ?></p>
+		
+		</section>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Editar Compra</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">Editar Compra</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><?php echo Form::hidden('Compra.idCompra')  ?></label>
+						</td>
+					</tr>
+					<tr>
+						
+						<td>
+							<label><i>id Cliente</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Compra.idCliente')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>idProducto</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Compra.idProducto')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('Compra.fecha')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Pago</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Compra.totalPago')?></label>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<label><i>Cantidad</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('Compra.cantidad')?></label>
+						</td>
+					</tr>
+
+
+
+					<tr>
+						<td>
+							<?php echo Form::submit (' Actualizar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

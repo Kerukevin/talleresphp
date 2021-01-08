@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contratos servicio</title>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<?php echo Form::open();?>
+			<form>
+				<h3 id="us">Contratos de servicios</h3>
+				<table cellspacing="10px">
+					<tr>
+						<td>
+							<label><i>Servicio</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::text('ContratoServicio.idContratoServicio')?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>Id Cliente</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::select('ContratoServicio.idServicio',array(1=>'Kevin',2=>'David  '))?></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label><i>id Producto</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::select('ContratoServicio.idAuto',array(1=>'Perfume',2=>'Aros', 3=>'Radios'))?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<label><i>Fecha</i></label>
+						</td>
+						<td>
+							<label><?php echo Form::date('ContratoServicio.fecha')?></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<?php echo Form::submit (' Guardar ') ?>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<?php Form::close() ?>
+		</section>
+	</body>
+</html>

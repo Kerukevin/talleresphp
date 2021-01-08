@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analisis</title>
+		<?php 
+			echo Tag::js('jquery/jquery.min');
+			echo Tag::js('jquery/jquery.kumbiaphp.min');
+				
+		?>
+	</head>
+	<body>
+		<section>
+			<?php View::content();?>
+			<h3 align="center">Comparar datos</h3>
+			<table id="tabla" class="condensed , zebra , border , t">
+				<tr>
+					<th class="tab"><i>#Comparacion</i></th>
+					<th class="tab"><i>Total Ganancias Servicio</i></th>
+					 <!-- <th class="tab"><i>Password</i></th> -->
+					<th class="tab"><i>Total ganancias Producto</i></th>
+
+
+				</tr>
+				<tr>
+					<td class="tab" align="center"><?php echo $idc ?></td>
+					<td class="tab" align="center"><?php echo $listsql ?></td>
+					<td class="tab" align="center"><?php echo $vsql ?></td>
+				</tr>
+				<tr class="tab" align="center">
+						<td class="tab" align="center">
+							<?php 
+								if($listsql>$vsql){
+									echo "!Mayores ingresos por Servicios!";
+								}else{
+									if($listsql<$vsql){
+										echo "!Mayores ingresos por Productos!";
+									}else{
+										echo "!Iguales ingresos de Servicios y Productos!";
+									}	
+								}
+							?>
+						</td>	
+				</tr>
+				
+			</table>
+			<br/>
+			<div class="col-3 text-right">
+	            <ul class="inline" >
+	              <li><a href='http://localhost/talleresphp/Comparacion/Comparar'>Realizar nueva comparacion</a> |</li>
+	              <li><a href='http://localhost/talleresphp/Comparacion/index'>Inicio</a> |</li>
+	             
+	            </ul>
+          	</div>	
+
+
+			<br>
+			<a href="http://localhost/talleresphp/" aria-current="page" class="col-2 text-right">
+				Cerrar sesion
+			</a>
+			<br/>
+
+		
+		</section>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Analizar ingresos</title>
+</head>
+<body>
+	<?php View::content();?>
+	<?php echo Form::open();?>
+	<form>
+		<h3 id="us" align="Center">Ingresos totales de Servicios y Productos</h3>
+		<table cellspacing="10px" class="condensed , zebra ,  t">
+			<tr>
+
+			</tr>
+			<tr>
+				<td>
+					<label><i>Servicio - Producto</i></label>
+				</td>
+				<!--<td>
+					
+					<label><?php echo Form::select('Comparacion.idPago', array(1=> 'Servicio',2=>'Producto' ))?></label>
+				</td>-->
+			</tr>
+			<tr>
+				<td>
+					<label><i>Fecha inicio</i></label>
+				</td>
+				<td>
+					<label><?php echo Form::date('Comparacion.fechaDesde')?></label>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<label><i>Fecha Final</i></label>
+				</td>
+				<td>
+					<label><?php echo Form::date('Comparacion.fechaHasta')?></label>
+				</td>
+			</tr>				
+			<tr>
+				<!--<td>
+					<label><i>Producto</i></label>
+				</td>-->
+				<!--<td>
+					<label><?php echo Form::select('Comparacion.idCompra', array(1=> 'Servicio',2=>'Producto' ))?></label>
+				</td>-->
+			</tr>
+			
+			
+
+
+				<td>
+					<?php echo Form::submit (' Guardar ') ?>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<?php Form::close() ?>
+
+</body>
+</html>
